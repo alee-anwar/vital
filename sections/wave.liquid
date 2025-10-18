@@ -1,0 +1,86 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .wave-section .content-container {
+    display: flex;
+  }
+{%- endstyle -%}
+
+<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
+  <div class="content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
+    {%- if section.settings.bottom_wave != blank -%}
+      <img
+        src="{{ section.settings.bottom_wave | image_url }}"
+        alt=""
+        width="100%"
+        height="auto"
+        class="minerals-wave__image"
+        loading="lazy">
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Wave",
+    "tag": "section",
+    "class": "section wave-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bottom_wave",
+        "label": "Bottom wave"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "scheme-1"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "default": true,
+        "label": "t:sections.rich-text.settings.full_width.label"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 40
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 52
+      }
+    ],
+    "presets": [
+      {
+        "name": "Wave"
+      }
+    ]
+  }
+{% endschema %}

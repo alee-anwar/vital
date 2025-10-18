@@ -1,0 +1,925 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_HkLUgj": {
+      "type": "hero",
+      "blocks": {
+        "heading_CUytKG": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>The Gum That </p><p>Strengthens Teeth</p><p> — Naturally.</p>",
+            "colored_text": "Naturally",
+            "heading_size": "h1"
+          }
+        },
+        "text_3ehE6R": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enjoy fresh breath while restoring vital minerals to your teeth. VitalGums make remineralization simple, effective, and part of your everyday routine.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_ebDdiB": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop now",
+            "button_link": "#",
+            "button_style_secondary": false,
+            "gradient_button": true,
+            "mobile_badge_1": "shopify://shop_images/Group_592.png",
+            "mobile_badge_2": "shopify://shop_images/Group_590_2.png",
+            "mobile_badge_3": "shopify://shop_images/Group_591.png",
+            "desktop_badge_1": "shopify://shop_images/Group_588.png",
+            "desktop_badge_2": "shopify://shop_images/Group_591.png",
+            "desktop_badge_3": "shopify://shop_images/Group_590_2.png"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CUytKG",
+        "text_3ehE6R",
+        "button_ebDdiB"
+      ],
+      "name": "Hero",
+      "settings": {
+        "full_width": true,
+        "image": "shopify://shop_images/Group_441.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "marquee_7qmk3e": {
+      "type": "marquee",
+      "blocks": {
+        "text_qdeLNJ": {
+          "type": "text",
+          "settings": {
+            "text": "BETTER TASTE, DIGESTION, BREATH & SMILE"
+          }
+        },
+        "text_mpniwb": {
+          "type": "text",
+          "settings": {
+            "text": "BETTER TASTE, DIGESTION, BREATH & SMILE"
+          }
+        },
+        "text_eAigyP": {
+          "type": "text",
+          "settings": {
+            "text": "BETTER TASTE, DIGESTION, BREATH & SMILE"
+          }
+        }
+      },
+      "block_order": [
+        "text_qdeLNJ",
+        "text_mpniwb",
+        "text_eAigyP"
+      ],
+      "name": "Marquee",
+      "settings": {
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "movement_direction": "normal",
+        "speed": 20,
+        "padding_block_start": 24,
+        "padding_block_end": 24,
+        "gap_between_elements": 60
+      }
+    },
+    "image_with_droptext_98LCQi": {
+      "type": "image-with-droptext",
+      "blocks": {
+        "tagline_bbmfFF": {
+          "type": "tagline",
+          "settings": {
+            "caption": "Bestseller",
+            "text_style": "subtitle",
+            "text_size": "medium",
+            "tagline_color": "#25982d",
+            "show_arrow": true
+          }
+        },
+        "heading_97XUa3": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Bite Into Strength, Shine With Confidence</p>",
+            "colored_text": "Confidence",
+            "heading_size": "h2"
+          }
+        },
+        "text_UeHkXt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Each chew delivers more than just freshness—it strengthens, nourishes, and protects your teeth, helping you maintain a brighter, healthier smile every day</p>",
+            "text_style": "body"
+          }
+        },
+        "dropdowns_RhqwV9": {
+          "type": "dropdowns",
+          "settings": {
+            "left_icon_1": "shopify://shop_images/Frame_35.svg",
+            "left_title_1": "Attacks Plaque",
+            "left_content_1": "<p>This is feature one description.</p>",
+            "left_icon_2": "shopify://shop_images/mouth.svg",
+            "left_title_2": "Dry Mouth Relief",
+            "left_content_2": "<p>This is feature two description.</p>",
+            "left_icon_3": "shopify://shop_images/strength.svg",
+            "left_title_3": "Enamel Shield",
+            "left_content_3": "<p>This is feature three description.</p>",
+            "right_icon_1": "shopify://shop_images/Group.svg",
+            "right_title_1": "Restores Enamel",
+            "right_content_1": "<p>This is benefit one description.</p>",
+            "right_icon_2": "shopify://shop_images/Group_1.svg",
+            "right_title_2": "Pure Ingredients",
+            "right_content_2": "<p>This is benefit two description.</p>",
+            "right_icon_3": "shopify://shop_images/breath.svg",
+            "right_title_3": "Fresh Breath",
+            "right_content_3": "<p>This is benefit three description.</p>"
+          }
+        },
+        "button_9JeQGr": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop now",
+            "button_link": "#",
+            "button_style_secondary": false,
+            "gradient_button": true
+          }
+        }
+      },
+      "block_order": [
+        "tagline_bbmfFF",
+        "heading_97XUa3",
+        "text_UeHkXt",
+        "dropdowns_RhqwV9",
+        "button_9JeQGr"
+      ],
+      "name": "Image with droptext",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_69.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 56,
+        "padding_bottom": 24
+      }
+    },
+    "flavours_TbMnaw": {
+      "type": "flavours",
+      "blocks": {
+        "flavour_card_nnhNaB": {
+          "type": "flavour_card",
+          "settings": {
+            "flavour_icon": "shopify://shop_images/image_22_1.png",
+            "flavour_name": "Mint",
+            "header_description": "Discover the taste that fuels your smile choose your favorite VitalGum flavor.",
+            "card_description": "Cool, crisp, and refreshing—perfect for all-day freshness.",
+            "product_url": ""
+          }
+        },
+        "flavour_card_xE77gH": {
+          "type": "flavour_card",
+          "settings": {
+            "flavour_icon": "shopify://shop_images/image_23.png",
+            "flavour_name": "Raspberry",
+            "header_description": "Experience the burst of fruity freshness with our Raspberry flavor.",
+            "card_description": "Sweet, tangy, and bursting with fruity energy.",
+            "product_url": ""
+          }
+        },
+        "flavour_card_WizQNi": {
+          "type": "flavour_card",
+          "settings": {
+            "flavour_icon": "shopify://shop_images/image_21.png",
+            "flavour_name": "Cinnamon",
+            "header_description": "Embrace the warmth and spice of our bold Cinnamon flavor.",
+            "card_description": "Warm, bold, and spicy with every chew.",
+            "product_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "flavour_card_nnhNaB",
+        "flavour_card_xE77gH",
+        "flavour_card_WizQNi"
+      ],
+      "name": "Flavours",
+      "settings": {
+        "color_scheme": "",
+        "heading_prefix": "Shop by Flavors:",
+        "heading_size": "h3",
+        "padding_top": 24,
+        "padding_bottom": 60
+      }
+    },
+    "featured_product_geaKBw": {
+      "type": "featured-product",
+      "blocks": {
+        "text_z9hDpK": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_HKRX3d": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_RD3mYf": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_hTDkj4": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_zLMwNp": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_jQYy4j": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_JLmL7a": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_z9hDpK",
+        "title_HKRX3d",
+        "price_RD3mYf",
+        "variant_picker_hTDkj4",
+        "quantity_selector_zLMwNp",
+        "buy_buttons_jQYy4j",
+        "share_JLmL7a"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "remineralizing-gum",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "transformation_AAL7iU": {
+      "type": "transformation",
+      "blocks": {
+        "phase_e8hgkh": {
+          "type": "phase",
+          "settings": {
+            "title": "The Foundation",
+            "duration": "Months 1-3",
+            "description": "Building the groundwork for your dental transformation journey.",
+            "icon_image": "shopify://shop_images/Step1.svg",
+            "icon": ""
+          }
+        },
+        "phase_8EhDWH": {
+          "type": "phase",
+          "settings": {
+            "title": "Repair Phase",
+            "duration": "Months 3-6",
+            "description": "Active restoration and improvement of your dental health.",
+            "icon_image": "shopify://shop_images/step2.svg",
+            "icon": ""
+          }
+        },
+        "phase_Vn6eew": {
+          "type": "phase",
+          "settings": {
+            "title": "Polishing Effect",
+            "duration": "Months 6-9",
+            "description": "Refinement and enhancement of your dental appearance.",
+            "icon_image": "shopify://shop_images/Group_2.svg",
+            "icon": ""
+          }
+        },
+        "phase_qJD4wj": {
+          "type": "phase",
+          "settings": {
+            "title": "Long-Term Benefit",
+            "duration": "Months 9-12",
+            "description": "Maintaining and protecting your transformed dental health.",
+            "icon_image": "shopify://shop_images/Group_3.svg",
+            "icon": ""
+          }
+        }
+      },
+      "block_order": [
+        "phase_e8hgkh",
+        "phase_8EhDWH",
+        "phase_Vn6eew",
+        "phase_qJD4wj"
+      ],
+      "name": "Transformation Phases",
+      "settings": {
+        "heading_prefix": "Your",
+        "heading_highlight": "12-Month",
+        "heading_suffix": "Dental Transformation",
+        "heading_size": "h2",
+        "heading_max_width": "medium",
+        "description": "",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "clean_choices_JrV6z3": {
+      "type": "clean-choices",
+      "blocks": {
+        "feature_ixk4HV": {
+          "type": "feature",
+          "name": "Plastic Free",
+          "settings": {
+            "title": "Plastic Free",
+            "icon_image": "shopify://shop_images/image_8.png",
+            "icon": ""
+          }
+        },
+        "feature_48xkGb": {
+          "type": "feature",
+          "name": "GMO Free",
+          "settings": {
+            "title": "GMO Free",
+            "icon_image": "shopify://shop_images/image_9.png",
+            "icon": ""
+          }
+        },
+        "feature_X7F6yW": {
+          "type": "feature",
+          "name": "Sugar Free",
+          "settings": {
+            "title": "Sugar Free",
+            "icon_image": "shopify://shop_images/image_9_1.png",
+            "icon": ""
+          }
+        },
+        "feature_iwPEag": {
+          "type": "feature",
+          "name": "Keto Friendly",
+          "settings": {
+            "title": "Keto Friendly",
+            "icon_image": "shopify://shop_images/image_10.png",
+            "icon": ""
+          }
+        },
+        "feature_jhYEEa": {
+          "type": "feature",
+          "name": "Seed Oil Free",
+          "settings": {
+            "title": "Seed Oil Free",
+            "icon_image": "shopify://shop_images/image_9_2.png",
+            "icon": ""
+          }
+        },
+        "feature_gjQi7r": {
+          "type": "feature",
+          "name": "Gluten Free",
+          "settings": {
+            "title": "Gluten Free",
+            "icon_image": "shopify://shop_images/image_9_3.png",
+            "icon": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_ixk4HV",
+        "feature_48xkGb",
+        "feature_X7F6yW",
+        "feature_iwPEag",
+        "feature_jhYEEa",
+        "feature_gjQi7r"
+      ],
+      "name": "Clean Choices Features",
+      "settings": {
+        "heading_prefix": "Clean Choices,",
+        "heading_highlight": "Better Living",
+        "heading_size": "h2",
+        "description": "Our products are free from plastics, GMOs, sugar, seed oils, and gluten — all while staying keto-friendly. Simple, clean, and crafted for a healthier you.",
+        "color_scheme": "scheme-2",
+        "padding_top": 68,
+        "padding_bottom": 68
+      }
+    },
+    "minerals_TfddLg": {
+      "type": "minerals",
+      "blocks": {
+        "mineral_card_AE6MCA": {
+          "type": "mineral_card",
+          "settings": {
+            "position": "left",
+            "card_heading": "Calcium",
+            "card_text": "Essential for strong, healthy teeth. calcium helps strengthen enamel & prevent tooth decay"
+          }
+        },
+        "mineral_card_ExQnKK": {
+          "type": "mineral_card",
+          "settings": {
+            "position": "left",
+            "card_heading": "Iron",
+            "card_text": "Helps maintain the overall health of gums and teeth by supporting blood circulation & oxygen transport"
+          }
+        },
+        "mineral_card_P4q743": {
+          "type": "mineral_card",
+          "settings": {
+            "position": "left",
+            "card_heading": "Zinc",
+            "card_text": "Promotes healthy gums & teeth by supporting immune function & reducing inflammation"
+          }
+        },
+        "mineral_card_FbB6bp": {
+          "type": "mineral_card",
+          "settings": {
+            "position": "right",
+            "card_heading": "Phosphorus",
+            "card_text": "Supports the formation of bones and teeth, helping to maintain their structure & strength"
+          }
+        },
+        "mineral_card_AB9iJR": {
+          "type": "mineral_card",
+          "settings": {
+            "position": "right",
+            "card_heading": "Magnesium",
+            "card_text": "Works alongside calcium to strengthen teeth, ensuring the remain strong & resilient"
+          }
+        },
+        "mineral_card_WAq3JA": {
+          "type": "mineral_card",
+          "settings": {
+            "position": "right",
+            "card_heading": "Copper",
+            "card_text": "Assists in the production of collagen, supporting the fragility of teeth & gums"
+          }
+        }
+      },
+      "block_order": [
+        "mineral_card_AE6MCA",
+        "mineral_card_ExQnKK",
+        "mineral_card_P4q743",
+        "mineral_card_FbB6bp",
+        "mineral_card_AB9iJR",
+        "mineral_card_WAq3JA"
+      ],
+      "name": "Minerals",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "heading": "<p>6 Essential Minerals </p><p>+ Nano-Hydroxyapatite</p>",
+        "heading_size": "h2",
+        "heading_width": 100,
+        "center_image": "shopify://shop_images/Group_598_2.png",
+        "arrow_left": "shopify://shop_images/Vector_4.svg",
+        "middle_arrow_left": "shopify://shop_images/Vector_6.svg",
+        "bottom_arrow_left": "shopify://shop_images/Vector_5.svg",
+        "arrow_right": "shopify://shop_images/Vector_4_1.svg",
+        "middle_arrow_right": "shopify://shop_images/Vector_6_1.svg",
+        "bottom_arrow_right": "shopify://shop_images/Vector_5_1.svg",
+        "button_label": "Nano-Hydroxyapatite",
+        "button_link": "#",
+        "button_style_secondary": false,
+        "padding_top": 60,
+        "padding_bottom": 36
+      }
+    },
+    "wave_mmtyhG": {
+      "type": "wave",
+      "name": "Wave",
+      "settings": {
+        "bottom_wave": "shopify://shop_images/Subtract_2.png",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "testimonials_YWxjzF": {
+      "type": "testimonials",
+      "blocks": {
+        "column_fxi8wb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_87.png",
+            "title": "Love these, 2-3 a day and both my mouth and mind feel better",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": "",
+            "name": "Mathew G",
+            "rating": 5
+          }
+        },
+        "column_Gjwakp": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_87_1.png",
+            "title": "Love these, 2-3 a day and both my mouth and mind feel better",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": "",
+            "name": "Mathew G",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_fxi8wb",
+        "column_Gjwakp"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "title": "Clients love our gum taste",
+        "colored_text": "gum",
+        "heading_size": "h2",
+        "description": "<p>Over 18k+ customers<br/><br/></p>",
+        "badge": "shopify://shop_images/image_25_1.png",
+        "heading_width": 400,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "benefits_K7GRPn": {
+      "type": "benefits",
+      "blocks": {
+        "benefit_LLmgnL": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/truck_1.svg",
+            "title": "Free Shipping",
+            "description": "Shop worry-free with no hidden delivery costs."
+          }
+        },
+        "benefit_iJCemc": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/Vector_1.svg",
+            "title": "24/7 Customer Support",
+            "description": "Our team is always here to help you anytime, anywhere."
+          }
+        },
+        "benefit_6HxamY": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/money.svg",
+            "title": "Easy Returns & Refunds",
+            "description": "Hassle-free 30-day return policy for your peace of mind."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_LLmgnL",
+        "benefit_iJCemc",
+        "benefit_6HxamY"
+      ],
+      "name": "Benefits",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "color_scheme": "scheme-14d6e115-4930-4a8c-836b-bc0e6fb35584",
+        "columns_desktop": "3",
+        "columns_mobile": "1",
+        "alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "promotional_hero_cxXCnJ": {
+      "type": "promotional-hero",
+      "blocks": {
+        "heading_A9Hc4T": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Ready to Take Care of your <strong>Smile</strong>?</p>",
+            "colored_text": "Smile"
+          }
+        },
+        "description_YUdiRz": {
+          "type": "description",
+          "settings": {
+            "text": "VitalGum has take responsibility of thousands of customers smiles"
+          }
+        },
+        "features_ijAfAP": {
+          "type": "features",
+          "settings": {
+            "icon_1": "shopify://shop_images/Group_5.svg",
+            "text_1": "Combat Plaque Effectively",
+            "icon_2": "shopify://shop_images/Group_446.svg",
+            "text_2": "Achieve Lasting Fresh Breath",
+            "icon_3": "shopify://shop_images/shine.svg",
+            "text_3": "Brighten Smile Naturally",
+            "icon_4": "shopify://shop_images/teethf.svg",
+            "text_4": "Enhance Gum Health",
+            "icon_5": "shopify://shop_images/teethp.svg",
+            "text_5": "Fortify & Protect Teeth",
+            "icon_6": "shopify://shop_images/Group_4.svg",
+            "text_6": "Boost Confidence"
+          }
+        },
+        "button_ettMRG": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop now",
+            "button_link": "#",
+            "button_style_secondary": false,
+            "gradient_button": true,
+            "button_label_2": "Read Reviews",
+            "button_link_2": "#",
+            "gradient_button_2": false,
+            "button_style_secondary_2": true
+          }
+        },
+        "guarantee_GTkYEm": {
+          "type": "guarantee",
+          "settings": {
+            "guarantee_text": "60 days Money back Guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "heading_A9Hc4T",
+        "description_YUdiRz",
+        "features_ijAfAP",
+        "button_ettMRG",
+        "guarantee_GTkYEm"
+      ],
+      "name": "Promotional Hero",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_85.png",
+        "show_testimonial": true,
+        "customer_count": "10+",
+        "testimonial_text": "Happy Customers",
+        "section_color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_xGzU6a": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_77DtQA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the return policy?",
+            "icon": "none",
+            "row_content": "<p>Understanding Our Return Policy: Your Satisfaction Is Guaranteed.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KDkt8X": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are any purchases final sale?",
+            "icon": "none",
+            "row_content": "<p>Understand Our Return Policy: Are Any Purchases Final Sale?</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_JU4nGw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When will I get my order?",
+            "icon": "none",
+            "row_content": "<p>Get Answers Fast: Discover our Expedited Shipping Options Here.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_ty789r": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where are your products manufactured?",
+            "icon": "none",
+            "row_content": "<p>Trace the Journey from Farm to Table with our Manufacturing Process.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Rj4LYg": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How much does shipping cost?",
+            "icon": "none",
+            "row_content": "<p>Understanding the Factors that Affect Shipping Prices.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_77DtQA",
+        "collapsible_row_KDkt8X",
+        "collapsible_row_JU4nGw",
+        "collapsible_row_ty789r",
+        "collapsible_row_Rj4LYg"
+      ],
+      "name": "FAQs",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently asked questions",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "row",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "desktop_layout": "image_first",
+        "padding_top": 60,
+        "padding_bottom": 44
+      }
+    },
+    "professionals_fWFH7z": {
+      "type": "professionals",
+      "blocks": {
+        "column_dLEKJA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_33.png",
+            "title": "Dr. Marie Alee",
+            "text": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "link_label": "",
+            "link": "",
+            "rating": 5
+          }
+        },
+        "column_Mj37Bf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_33_1.png",
+            "title": "Dr. John Chris",
+            "text": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "link_label": "",
+            "link": "",
+            "rating": 5
+          }
+        },
+        "column_9pQVc9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_33_2.png",
+            "title": "Dr. Berlin Lee",
+            "text": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "link_label": "",
+            "link": "",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_dLEKJA",
+        "column_Mj37Bf",
+        "column_9pQVc9"
+      ],
+      "name": "Professionals",
+      "settings": {
+        "title": "Trusted by Dental Professionals",
+        "colored_text": "Dental",
+        "heading_size": "h2",
+        "description": "",
+        "max_width": 400,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 36
+      }
+    },
+    "community_XxdqLM": {
+      "type": "community",
+      "blocks": {
+        "column_wAcjX8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_62.png",
+            "title": "Noticeably whiter smile",
+            "text": "<p>Wasn’t expecting much, but after a month of chewing, I can say my teeth looks noticeably whiter.</p>",
+            "link_label": "",
+            "link": "",
+            "rating": 5
+          }
+        },
+        "column_KarD64": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_64.png",
+            "title": "Noticeably whiter smile",
+            "text": "<p>Wasn’t expecting much, but after a month of chewing, I can say my teeth looks noticeably whiter.</p>",
+            "link_label": "",
+            "link": "",
+            "rating": 5
+          }
+        },
+        "column_aWwJUz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_66.png",
+            "title": "Noticeably whiter smile",
+            "text": "<p>Wasn’t expecting much, but after a month of chewing, I can say my teeth looks noticeably whiter.</p>",
+            "link_label": "",
+            "link": "",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "column_wAcjX8",
+        "column_KarD64",
+        "column_aWwJUz"
+      ],
+      "name": "Community",
+      "settings": {
+        "title": "Join Our Community",
+        "colored_text": "Community",
+        "heading_size": "h2",
+        "description": "<p>Be part of a growing community that’s choosing healthier smiles and fresher living.</p>",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "hero_HkLUgj",
+    "marquee_7qmk3e",
+    "image_with_droptext_98LCQi",
+    "flavours_TbMnaw",
+    "featured_product_geaKBw",
+    "transformation_AAL7iU",
+    "clean_choices_JrV6z3",
+    "minerals_TfddLg",
+    "wave_mmtyhG",
+    "testimonials_YWxjzF",
+    "benefits_K7GRPn",
+    "promotional_hero_cxXCnJ",
+    "collapsible_content_xGzU6a",
+    "professionals_fWFH7z",
+    "community_XxdqLM"
+  ]
+}

@@ -1,0 +1,487 @@
+/* ====================================
+   Minerals Section Styles
+   ==================================== */
+
+.minerals-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.minerals-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.minerals-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.minerals-header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(78, 116, 204, 1) 0%,
+    rgba(39, 58, 102, 1) 100%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(40px);
+}
+
+.minerals-heading {
+  color: rgb(var(--color-foreground));
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Layout */
+.minerals-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  column-gap: 12vw;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Mineral Cards */
+.minerals-side {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vw;
+  z-index: 2;
+}
+
+.minerals-side--left {
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.minerals-side--right {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.mineral-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 215px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mineral-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.mineral-card__heading {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0 0 0.6rem;
+}
+
+.mineral-card__text {
+  font-size: 1rem;
+  margin: 0;
+  color: rgba(var(--color-foreground), 0.85);
+}
+
+/* Center Image Section */
+.minerals-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4vw;
+  position: relative;
+  z-index: 3;
+  min-width: 300px;
+}
+
+.minerals-center__top-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -1rem;
+}
+
+.minerals-center__top-image img {
+  width: auto;
+  height: auto;
+  max-width: 120px;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.minerals-center__main-image {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.minerals-center__main-image .main-image {
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+  object-fit: contain;
+}
+
+/* Arrow Connectors */
+.minerals-arrows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.minerals-arrow {
+  position: absolute;
+  width: auto;
+  height: auto;
+  opacity: 0.8;
+  max-width: 12vw;
+}
+
+/* Left Arrows Positioning */
+.minerals-arrow--left-1 {
+  top: 36%;
+  left: -12.2vw;
+}
+
+.minerals-arrow--left-2 {
+  top: 61%;
+  left: -12.2vw;
+}
+
+.minerals-arrow--left-3 {
+  top: 70%;
+  left: -12vw;
+}
+
+/* Right Arrows Positioning */
+.minerals-arrow--right-1 {
+  top: 36%;
+  right: -12.2vw;
+}
+
+.minerals-arrow--right-2 {
+  top: 61%;
+  right: -12.2vw;
+}
+
+.minerals-arrow--right-3 {
+  top: 70%;
+  right: -12vw;
+}
+
+/* ====================================
+   Tablet Styles (Landscape & iPad)
+   ==================================== */
+@media screen and (max-width: 1024px) {
+  .minerals-layout {
+    column-gap: 4vw;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .minerals-side {
+    row-gap: 3vw;
+  }
+
+  .mineral-card {
+    max-width: 180px;
+    padding: 1.25rem;
+  }
+
+  .mineral-card__heading {
+    font-size: 1rem;
+  }
+
+  .mineral-card__text {
+    font-size: 0.8125rem;
+  }
+
+  .minerals-center {
+    min-width: 250px;
+  }
+
+  .minerals-center__top-image img {
+    max-width: 100px;
+    max-height: 80px;
+  }
+
+  .minerals-center__main-image .main-image {
+    max-width: 280px;
+  }
+
+  .mineral-card-left-1,
+  .mineral-card-left-2 {
+    margin-right: 4px;
+  }
+
+  .mineral-card-right-4,
+  .mineral-card-right-5 {
+    margin-left: 4px;
+  }
+
+  .minerals-arrow {
+    max-width: 7vw;
+    z-index: -1;
+  }
+
+  .minerals-arrow--left-1 {
+    top: 45%;
+    left: -6.5vw;
+  }
+
+  .minerals-arrow--left-2 {
+    top: 61%;
+    left: -5.2vw;
+  }
+
+  .minerals-arrow--left-3 {
+    top: 69%;
+    left: -6.5vw;
+  }
+
+  .minerals-arrow--right-1 {
+    top: 45%;
+    right: -6.5vw;
+  }
+
+  .minerals-arrow--right-2 {
+    top: 61%;
+    right: -5.2vw;
+  }
+
+  .minerals-arrow--right-3 {
+    top: 69%;
+    right: -6.5vw;
+  }
+}
+
+/* ====================================
+   Mobile Styles (Phones)
+   ==================================== */
+@media screen and (max-width: 750px) {
+  .minerals-header {
+    margin-bottom: 2rem;
+  }
+
+  .minerals-heading {
+    padding: 0 0.5rem;
+  }
+
+  .minerals-header::before {
+    max-width: 500px;
+    height: 200px;
+    filter: blur(30px);
+  }
+
+  .minerals-layout {
+    column-gap: 2vw;
+    padding: 0 0.5rem;
+  }
+
+  .minerals-side {
+    row-gap: 2vw;
+  }
+
+  .mineral-card {
+    max-width: 140px;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .mineral-card__heading {
+    font-size: 0.875rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .mineral-card__text {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .minerals-center {
+    min-width: 200px;
+    row-gap: 2vw;
+  }
+
+  .minerals-center__top-image {
+    margin-bottom: -0.5rem;
+  }
+
+  .minerals-center__top-image img {
+    max-width: 70px;
+    max-height: 60px;
+  }
+
+  .minerals-center__main-image .main-image {
+    max-width: 200px;
+  }
+
+  .mineral-card-left-1,
+  .mineral-card-left-2 {
+    margin-right: 2px;
+  }
+
+  .mineral-card-right-4,
+  .mineral-card-right-5 {
+    margin-left: 2px;
+  }
+}
+
+/* ====================================
+   Small Mobile Styles
+   ==================================== */
+@media screen and (max-width: 480px) {
+  .minerals-header::before {
+    max-width: 400px;
+    height: 150px;
+  }
+
+  .minerals-layout {
+    column-gap: 1.5vw;
+    padding: 0 0.25rem;
+  }
+
+  .minerals-side {
+    row-gap: 1.5vw;
+  }
+
+  .mineral-card {
+    padding: 0.75rem;
+  }
+
+  .mineral-card__heading {
+    font-size: 0.75rem;
+  }
+
+  .mineral-card__text {
+    font-size: 0.625rem;
+  }
+
+  .minerals-center {
+    min-width: 150px;
+  }
+
+  .minerals-center__top-image img {
+    max-width: 50px;
+    max-height: 45px;
+  }
+
+  .minerals-center__main-image .main-image {
+    max-width: 120px;
+  }
+
+  .mineral-card-left-1,
+  .mineral-card-left-2,
+  .mineral-card-right-4,
+  .mineral-card-right-5 {
+    margin: 0;
+  }
+
+  .minerals-center .button {
+    font-size: 1rem;
+    padding: 1rem;
+    min-height: 2rem;
+  }
+
+  .minerals-arrow--right-1,
+  .minerals-arrow--left-1 {
+    top: 37%;
+  }
+
+  .minerals-arrow--right-2,
+  .minerals-arrow--left-2 {
+    top: 63%;
+  }
+
+  .minerals-arrow--right-3,
+  .minerals-arrow--left-3 {
+    top: 80%;
+  }
+}
+
+/* ====================================
+   Large Desktop Styles
+   ==================================== */
+@media screen and (min-width: 1440px) {
+  .minerals-layout {
+    column-gap: 8vw;
+  }
+
+  .mineral-card {
+    max-width: 250px;
+    padding: 1.75rem;
+  }
+
+  .minerals-center {
+    min-width: 400px;
+  }
+
+  .minerals-center__main-image .main-image {
+    max-width: 400px;
+  }
+}
+
+/* ====================================
+   Accessibility
+   ==================================== */
+@media (prefers-reduced-motion: reduce) {
+  .mineral-card {
+    transition: none;
+  }
+
+  .mineral-card:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .mineral-card {
+    border: 2px solid rgb(var(--color-foreground));
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Card Positioning Adjustments */
+.mineral-card-left-1 {
+  margin-right: 8px;
+}
+
+.mineral-card-left-2 {
+  margin-right: 24px;
+}
+
+.mineral-card-right-4 {
+  margin-left: 8px;
+}
+
+.mineral-card-right-5 {
+  margin-left: 24px;
+}
+
+h2 p {
+  margin: 0;
+}

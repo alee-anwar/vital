@@ -1,0 +1,389 @@
+{{ 'section-clean-choices.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="clean-choices-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="clean-choices-container page-width">
+    <div class="clean-choices-content">
+      {%- comment -%} Main Title {%- endcomment -%}
+      <div class="clean-choices-header">
+        <h2 class="clean-choices-heading {{ section.settings.heading_size }}">
+          {{ section.settings.heading_prefix }}
+          <span class="clean-choices-highlight">{{ section.settings.heading_highlight }}</span>
+        </h2>
+        {%- if section.settings.description != blank -%}
+          <p class="clean-choices-description">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Feature Blocks {%- endcomment -%}
+      {%- if section.blocks.size > 0 -%}
+        <div class="clean-choices-features">
+          {%- comment -%} Desktop Grid View {%- endcomment -%}
+          <div class="clean-choices-grid desktop-only">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'feature' -%}
+                <div class="feature-block" {{ block.shopify_attributes }}>
+                  <div class="feature-icon">
+                    {%- if block.settings.icon_image != blank -%}
+                      {{ block.settings.icon_image | image_url: width: 80 | image_tag: class: 'feature-icon-image' }}
+                    {%- elsif block.settings.icon != blank -%}
+                      {{ block.settings.icon }}
+                    {%- else -%}
+                      <svg
+                        width="60"
+                        height="60"
+                        viewBox="0 0 60 60"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle
+                          cx="30"
+                          cy="30"
+                          r="28"
+                          stroke="currentColor"
+                          stroke-width="2" />
+                        <path
+                          d="M20 30L25 35L40 20"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    {%- endif -%}
+                  </div>
+                  <h6 class="feature-label h6">{{ block.settings.title }}</h6>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+        </div>
+
+          {%- comment -%} Mobile View - Grid for 3 or fewer blocks, Slider for more {%- endcomment -%}
+          {%- assign feature_blocks = section.blocks | where: 'type', 'feature' -%}
+          {%- if feature_blocks.size <= 3 -%}
+            <div class="clean-choices-mobile-grid mobile-only">
+              {%- for block in feature_blocks -%}
+                <div class="feature-block" {{ block.shopify_attributes }}>
+                  <div class="feature-icon">
+                    {%- if block.settings.icon_image != blank -%}
+                      {{ block.settings.icon_image | image_url: width: 80 | image_tag: class: 'feature-icon-image' }}
+                    {%- elsif block.settings.icon != blank -%}
+                      {{ block.settings.icon }}
+                    {%- else -%}
+                      <svg
+                        width="60"
+                        height="60"
+                        viewBox="0 0 60 60"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle
+                          cx="30"
+                          cy="30"
+                          r="28"
+                          stroke="currentColor"
+                          stroke-width="2" />
+                        <path
+                          d="M20 30L25 35L40 20"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    {%- endif -%}
+                  </div>
+                  <div class="feature-label">{{ block.settings.title }}</div>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <div class="clean-choices-slider mobile-only">
+              <slider-component class="slider">
+                <ul
+                  id="CleanChoicesSlider-{{ section.id }}"
+                  class="clean-choices-slider-list"
+                  role="list">
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'feature' -%}
+                      <li
+                        id="Slide-{{ section.id }}-{{ forloop.index }}"
+                        class="clean-choices-slide"
+                        {{ block.shopify_attributes }}>
+                        <div class="slide-feature-icon">
+                          {%- if block.settings.icon_image != blank -%}
+                            {{ block.settings.icon_image | image_url: width: 80 | image_tag: class: 'slide-feature-icon-image' }}
+                          {%- elsif block.settings.icon != blank -%}
+                            {{ block.settings.icon }}
+                          {%- else -%}
+                            <svg
+                              width="60"
+                              height="60"
+                              viewBox="0 0 60 60"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <circle
+                                cx="30"
+                                cy="30"
+                                r="28"
+                                stroke="currentColor"
+                                stroke-width="2" />
+                              <path
+                                d="M20 30L25 35L40 20"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+                          {%- endif -%}
+                        </div>
+                        <div class="slide-feature-label">{{ block.settings.title }}</div>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+              </ul>
+
+                {%- comment -%} Slider Dots {%- endcomment -%}
+                {%- assign feature_blocks = section.blocks | where: 'type', 'feature' -%}
+                {%- assign total_slides = feature_blocks.size | divided_by: 3.0 | ceil -%}
+                <div class="slider-dots">
+                  {%- for i in (1..total_slides) -%}
+                    <button
+                      type="button"
+                      class="slider-dot{% if forloop.first %} slider-dot--active{% endif %}"
+                      data-slide="{{ forloop.index0 }}"
+                      aria-label="Go to slide {{ forloop.index }}"></button>
+                  {%- endfor -%}
+                </div>
+              </slider-component>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Use more specific selectors to avoid conflicts with other sections
+    const slider = document.querySelector('#CleanChoicesSlider-{{ section.id }}');
+    const dots = document.querySelectorAll('#CleanChoicesSlider-{{ section.id }}').length > 0 ? 
+                 document.querySelectorAll('#CleanChoicesSlider-{{ section.id }}').item(0).parentElement.querySelectorAll('.slider-dot') : 
+                 [];
+  
+    // Only initialize slider if it exists (more than 3 blocks)
+    if (!slider || !dots.length) return;
+  
+    let currentSlide = 0;
+    const totalSlides = dots.length;
+    const itemsPerSlide = 3;
+  
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('slider-dot--active', index === currentSlide);
+        });
+    }
+  
+    function goToSlide(slideIndex) {
+        currentSlide = slideIndex;
+        const slideWidth = slider.clientWidth;
+        slider.scrollTo({
+            left: slideIndex * slideWidth,
+            behavior: 'smooth'
+        });
+        updateDots();
+    }
+  
+    // Dot click handlers - use more specific event delegation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            goToSlide(index);
+        });
+    });
+  
+    // Update dots on scroll
+    slider.addEventListener('scroll', function() {
+        const slideWidth = slider.clientWidth;
+        const newSlide = Math.round(slider.scrollLeft / slideWidth);
+        if (newSlide !== currentSlide) {
+            currentSlide = newSlide;
+            updateDots();
+        }
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Clean Choices Features",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Settings"
+      },
+      {
+        "type": "text",
+        "id": "heading_prefix",
+        "label": "Heading Prefix",
+        "default": "Clean Choices,"
+      },
+      {
+        "type": "text",
+        "id": "heading_highlight",
+        "label": "Heading Highlight",
+        "default": "Better Living"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h5",
+            "label": "t:sections.all.heading_size.options__1.label"
+          },
+          {
+            "value": "h4",
+            "label": "t:sections.all.heading_size.options__2.label"
+          },
+          {
+            "value": "h3",
+            "label": "t:sections.all.heading_size.options__3.label"
+          },
+          {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__4.label"
+          }, {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__5.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      }, {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Our products are free from plastics, GMOs, sugar, seed oils, and gluten — all while staying keto-friendly. Simple, clean, and crafted for a healthier you.",
+        "info": "Description text below the heading"
+      }, {
+        "type": "header",
+        "content": "Section Colors"
+      }, {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.collapsible_content.settings.section_color_scheme.label",
+        "default": "scheme-1"
+      }, {
+        "type": "header",
+        "content": "Section Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "type": "feature",
+        "name": "Feature Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Feature Title",
+            "default": "Feature Title"
+          }, {
+            "type": "image_picker",
+            "id": "icon_image",
+            "label": "Icon Image",
+            "info": "Upload an image for the feature icon. Recommended size: 80x80px or larger."
+          }, {
+            "type": "html",
+            "id": "icon",
+            "label": "Custom SVG Icon",
+            "info": "Add custom SVG icon HTML. If both image and SVG are provided, the image will be used."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Clean Choices Features",
+        "blocks": [
+          {
+            "type": "feature",
+            "settings": {
+              "title": "Plastic Free",
+              "icon": "<svg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"30\" cy=\"30\" r=\"28\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M15 20L45 40M45 20L15 40\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M20 15H40C42.2091 15 44 16.7909 44 19V41C44 43.2091 42.2091 45 40 45H20C17.7909 45 16 43.2091 16 41V19C16 16.7909 17.7909 15 20 15Z\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\"/></svg>"
+            }
+          },
+          {
+            "type": "feature",
+            "settings": {
+              "title": "GMO Free",
+              "icon": "<svg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"30\" cy=\"30\" r=\"28\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M20 25C20 20 25 15 30 15C35 15 40 20 40 25C40 30 35 35 30 35C25 35 20 30 20 25Z\" fill=\"#22C55E\"/><path d=\"M20 35C20 30 25 25 30 25C35 25 40 30 40 35C40 40 35 45 30 45C25 45 20 40 20 35Z\" fill=\"#22C55E\"/></svg>"
+            }
+          },
+          {
+            "type": "feature",
+            "settings": {
+              "title": "Sugar Free",
+              "icon": "<svg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"30\" cy=\"30\" r=\"28\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M15 20L45 40M45 20L15 40\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><rect x=\"18\" y=\"18\" width=\"6\" height=\"6\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\"/><rect x=\"30\" y=\"18\" width=\"6\" height=\"6\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\"/><rect x=\"42\" y=\"18\" width=\"6\" height=\"6\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\"/></svg>"
+            }
+          },
+          {
+            "type": "feature",
+            "settings": {
+              "title": "Keto Friendly",
+              "icon": "<svg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"30\" cy=\"30\" r=\"28\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M30 15C30 15 30 25 30 25C30 25 30 35 30 35C30 35 30 45 30 45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M25 40C25 40 30 35 30 35C30 35 35 40 35 40\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>"
+            }
+          }, {
+            "type": "feature",
+            "settings": {
+              "title": "Seed Oil Free",
+              "icon": "<svg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"30\" cy=\"30\" r=\"28\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M30 20C30 20 30 30 30 30C30 30 30 40 30 40\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M25 25C25 25 30 30 30 30C30 30 35 25 35 25\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><circle cx=\"30\" cy=\"25\" r=\"3\" fill=\"#F59E0B\"/></svg>"
+            }
+          }, {
+            "type": "feature",
+            "settings": {
+              "title": "Gluten Free",
+              "icon": "<svg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"30\" cy=\"30\" r=\"28\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M15 20L45 40M45 20L15 40\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M20 15C20 15 20 25 20 25C20 25 20 35 20 35C20 35 20 45 20 45\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M25 20C25 20 25 30 25 30C25 30 25 40 25 40\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

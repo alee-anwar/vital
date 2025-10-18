@@ -1,0 +1,245 @@
+/* ====================================
+   Clean Choices Section Styles
+   ==================================== */
+
+.clean-choices-section {
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+}
+
+.clean-choices-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.clean-choices-content {
+  text-align: center;
+}
+
+/* Header Styles */
+.clean-choices-header {
+  margin-bottom: 6rem;
+}
+
+.clean-choices-heading {
+  font-weight: 700;
+  margin: 0 0 2.5rem 0;
+  color: rgb(var(--color-foreground));
+}
+
+.clean-choices-highlight {
+  color: var(--theme-color); /* Blue color for "Better Living" */
+}
+
+.clean-choices-description {
+  color: rgba(var(--color-foreground), 0.8);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Desktop Grid Layout */
+.clean-choices-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.feature-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: calc(100% / 6 - var(--grid-mobile-horizontal-spacing));
+  max-width: calc(100% / 6 - var(--grid-mobile-horizontal-spacing));
+}
+
+.feature-icon {
+  width: 86%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--color-foreground), 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  background: rgb(var(--color-background));
+}
+
+.feature-icon svg {
+  width: 40px;
+  height: 40px;
+  color: rgb(var(--color-foreground));
+}
+
+.feature-icon-image {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
+.feature-label {
+  color: rgb(var(--color-foreground));
+  text-align: center;
+}
+
+/* Mobile Grid Styles (for 3 or fewer blocks) */
+.clean-choices-mobile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Mobile Slider Styles (for more than 3 blocks) */
+.clean-choices-slider {
+  position: relative;
+}
+
+.clean-choices-slider-list {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  margin: 0;
+  list-style: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.clean-choices-slider-list::-webkit-scrollbar {
+  display: none;
+}
+
+.clean-choices-slide {
+  flex: 0 0 calc(33.333% - 1rem);
+  scroll-snap-align: center;
+  text-align: center;
+  padding: 1rem 0.5rem;
+}
+
+.slide-feature-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--color-foreground), 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+  background: rgb(var(--color-background));
+}
+
+.slide-feature-icon svg {
+  width: 40px;
+  height: 40px;
+  color: rgb(var(--color-foreground));
+}
+
+.slide-feature-icon-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.slide-feature-label {
+  color: rgb(var(--color-foreground));
+  text-align: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 749px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .clean-choices-description {
+    padding: 0 1rem;
+  }
+
+  .clean-choices-slide {
+    flex: 0 0 calc(33.333% - 0.5rem);
+  }
+
+  .clean-choices-header {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .desktop-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* Tablet adjustments */
+@media screen and (min-width: 750px) and (max-width: 1024px) {
+  .clean-choices-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Large desktop adjustments */
+@media screen and (min-width: 1025px) {
+  .clean-choices-container {
+    padding: 0 2rem;
+  }
+}
+
+/* Slider Dots */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 0.5rem;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(var(--color-foreground), 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.slider-dot--active {
+  background: rgb(var(--color-foreground));
+}
+
+.slider-dot:hover {
+  background: rgba(var(--color-foreground), 0.6);
+}
+
+.slider-dot--active:hover {
+  background: rgb(var(--color-foreground));
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .clean-choices-slider-list {
+    scroll-behavior: auto;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .feature-icon,
+  .slide-feature-icon {
+    border-color: rgb(var(--color-foreground));
+  }
+}

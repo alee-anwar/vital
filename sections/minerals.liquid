@@ -1,0 +1,377 @@
+{{ 'section-minerals.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .section-{{ section.id }}
+  .minerals-heading {
+    width: {{ section.settings.heading_width }}%;
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="minerals-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="minerals-container page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="minerals-header">
+        <h2 class="minerals-heading {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="minerals-layout">
+      {%- comment -%} Left side mineral cards {%- endcomment -%}
+      <div class="minerals-side minerals-side--left">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.position == 'left' -%}
+            <div class="mineral-card mineral-card-left-{{ forloop.index }}" {{ block.shopify_attributes }}>
+              {%- if block.settings.card_heading != blank -%}
+                <p class="mineral-card__heading">{{ block.settings.card_heading }}</p>
+              {%- endif -%}
+              {%- if block.settings.card_text != blank -%}
+                <p class="mineral-card__text">{{ block.settings.card_text }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%} Center image with tooth and button {%- endcomment -%}
+      <div class="minerals-center">
+        {%- if section.settings.top_image != blank -%}
+          <div class="minerals-center__top-image">
+            {%- assign top_img = section.settings.top_image -%}
+            <img
+              src="{{ top_img | image_url: width: 400 }}"
+              alt="{{ top_img.alt | escape }}"
+              loading="lazy"
+              width="{{ top_img.width }}"
+              height="{{ top_img.height }}">
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.center_image != blank -%}
+          <div class="minerals-center__main-image">
+            {%- assign center_img = section.settings.center_image -%}
+            <img
+              src="{{ center_img | image_url: width: 600 }}"
+              alt="{{ center_img.alt | escape }}"
+              loading="lazy"
+              width="{{ center_img.width }}"
+              height="{{ center_img.height }}"
+              class="main-image">
+
+            {%- comment -%} Arrow connectors {%- endcomment -%}
+            {%- if section.settings.arrow_left != blank -%}
+              <img
+                src="{{ section.settings.arrow_left | image_url }}"
+                alt=""
+                class="minerals-arrow minerals-arrow--left-1"
+                loading="lazy">
+            {%- endif -%}
+            {%- if section.settings.middle_arrow_left != blank -%}
+              <img
+                src="{{ section.settings.middle_arrow_left | image_url }}"
+                alt=""
+                class="minerals-arrow minerals-arrow--left-2"
+                loading="lazy">
+            {%- endif -%}
+            {%- if section.settings.bottom_arrow_left != blank -%}
+              <img
+                src="{{ section.settings.bottom_arrow_left | image_url }}"
+                alt=""
+                class="minerals-arrow minerals-arrow--left-3"
+                loading="lazy">
+            {%- endif -%}
+            {%- if section.settings.arrow_right != blank -%}
+              <img
+                src="{{ section.settings.arrow_right | image_url }}"
+                alt=""
+                class="minerals-arrow minerals-arrow--right-1"
+                loading="lazy">
+            {%- endif -%}
+            {%- if section.settings.middle_arrow_right != blank -%}
+              <img
+                src="{{ section.settings.middle_arrow_right | image_url }}"
+                alt=""
+                class="minerals-arrow minerals-arrow--right-2"
+                loading="lazy">
+            {%- endif -%}
+            {%- if section.settings.bottom_arrow_right != blank -%}
+              <img
+                src="{{ section.settings.bottom_arrow_right | image_url }}"
+                alt=""
+                class="minerals-arrow minerals-arrow--right-3"
+                loading="lazy">
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <a
+            {% if section.settings.button_link == blank %}
+            role="link"
+            aria-disabled="true"
+            {% else %}
+            href="{{ section.settings.button_link }}"
+            {% endif %}
+            class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">
+            {{- section.settings.button_label | escape -}}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Right side mineral cards {%- endcomment -%}
+      <div class="minerals-side minerals-side--right">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.position == 'right' -%}
+            <div class="mineral-card mineral-card-right-{{ forloop.index }}" {{ block.shopify_attributes }}>
+              {%- if block.settings.card_heading != blank -%}
+                <p class="mineral-card__heading">{{ block.settings.card_heading }}</p>
+              {%- endif -%}
+              {%- if block.settings.card_text != blank -%}
+                <p class="mineral-card__text">{{ block.settings.card_text }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Minerals",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "scheme-1"
+      },
+      {
+        "type": "richtext",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h5",
+            "label": "t:sections.all.heading_size.options__1.label"
+          },
+          {
+            "value": "h4",
+            "label": "t:sections.all.heading_size.options__2.label"
+          },
+          {
+            "value": "h3",
+            "label": "t:sections.all.heading_size.options__3.label"
+          },
+          {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__4.label"
+          }, {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__5.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      },
+      {
+        "type": "range",
+        "id": "heading_width",
+        "min": 20,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Heading width",
+        "default": 100,
+        "info": "Adjust the width of the heading text"
+      }, {
+        "type": "header",
+        "content": "Images"
+      }, {
+        "type": "image_picker",
+        "id": "top_image",
+        "label": "Top Image (e.g., tooth)",
+        "info": "Appears above the center product image"
+      }, {
+        "type": "image_picker",
+        "id": "center_image",
+        "label": "Center Product Image"
+      }, {
+        "type": "header",
+        "content": "Arrow Connectors"
+      }, {
+        "type": "image_picker",
+        "id": "arrow_left",
+        "label": "Top Left Arrow"
+      }, {
+        "type": "image_picker",
+        "id": "middle_arrow_left",
+        "label": "Middle Left Arrow"
+      }, {
+        "type": "image_picker",
+        "id": "bottom_arrow_left",
+        "label": "Bottom Left Arrow"
+      }, {
+        "type": "image_picker",
+        "id": "arrow_right",
+        "label": "Top Right Arrow"
+      }, {
+        "type": "image_picker",
+        "id": "middle_arrow_right",
+        "label": "Middle Right Arrow"
+      }, {
+        "type": "image_picker",
+        "id": "bottom_arrow_right",
+        "label": "Bottom Right Arrow"
+      }, {
+        "type": "header",
+        "content": "Button"
+      }, {
+        "type": "text",
+        "id": "button_label",
+        "default": "Nano-Hydroxyapatite",
+        "label": "Label"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Link"
+      }, {
+        "type": "checkbox",
+        "id": "button_style_secondary",
+        "default": false,
+        "label": "Secondary style"
+      }, {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 60
+      }
+    ],
+    "blocks": [
+      {
+        "type": "mineral_card",
+        "name": "Mineral Card",
+        "settings": [
+          {
+            "type": "select",
+            "id": "position",
+            "label": "Position",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left Side"
+              }, {
+                "value": "right",
+                "label": "Right Side"
+              }
+            ],
+            "default": "left",
+            "info": "Choose which side to display this card"
+          }, {
+            "type": "text",
+            "id": "card_heading",
+            "label": "Heading",
+            "default": "Mineral Name"
+          }, {
+            "type": "textarea",
+            "id": "card_text",
+            "label": "Description",
+            "default": "Description of the mineral's benefits"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 6,
+    "presets": [
+      {
+        "name": "Minerals",
+        "blocks": [
+          {
+            "type": "mineral_card",
+            "settings": {
+              "position": "left",
+              "card_heading": "Calcium",
+              "card_text": "Essential for strong, healthy teeth. calcium helps strengthen enamel & prevent tooth decay"
+            }
+          },
+          {
+            "type": "mineral_card",
+            "settings": {
+              "position": "left",
+              "card_heading": "Iron",
+              "card_text": "Helps maintain the overall health of gums and teeth by supporting blood circulation & oxygen transport"
+            }
+          },
+          {
+            "type": "mineral_card",
+            "settings": {
+              "position": "left",
+              "card_heading": "Zinc",
+              "card_text": "Promotes healthy gums & teeth by supporting immune function & reducing inflammation"
+            }
+          },
+          {
+            "type": "mineral_card",
+            "settings": {
+              "position": "right",
+              "card_heading": "Phosphorus",
+              "card_text": "Supports the formation of bones and teeth, helping to maintain their structure & strength"
+            }
+          }, {
+            "type": "mineral_card",
+            "settings": {
+              "position": "right",
+              "card_heading": "Magnesium",
+              "card_text": "Works alongside calcium to strengthen teeth, ensuring the remain strong & resilient"
+            }
+          }, {
+            "type": "mineral_card",
+            "settings": {
+              "position": "right",
+              "card_heading": "Copper",
+              "card_text": "Assists in the production of collagen, supporting the fragility of teeth & gums"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

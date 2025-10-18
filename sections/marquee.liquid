@@ -1,0 +1,242 @@
+<marquee-component class="marquee-section" style="
+      --marquee-direction: {{ section.settings.movement_direction }};
+      --marquee-bg-color: {{ section.settings.background_color }};
+      --marquee-text-color: {{ section.settings.text_color }};
+      --marquee-gap: {{ section.settings.gap_between_elements }}px;
+      --marquee-padding-top: {{ section.settings.padding_block_start }}px;
+      --marquee-padding-bottom: {{ section.settings.padding_block_end }}px;
+      --marquee-speed: {{ section.settings.speed }}s;
+    ">
+  <div class="marquee__wrapper">
+    <div class="marquee__content">
+      {%- for block in section.blocks -%}
+        <div class="marquee__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.text != blank -%}
+            {{ block.settings.text }}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="marquee__content" aria-hidden="true">
+      {%- for block in section.blocks -%}
+        <div class="marquee__item">
+          {%- if block.settings.text != blank -%}
+            {{ block.settings.text }}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</marquee-component>
+
+{% stylesheet %}
+  .marquee-section {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--marquee-bg-color, #000);
+    padding: var(--marquee-padding-top, 24px) 0 var(--marquee-padding-bottom);
+    position: relative;
+  }
+  .marquee__wrapper {
+    display: flex;
+    gap: var(--marquee-gap, 60px);
+    width: fit-content;
+    animation: marquee-scroll var(--marquee-speed, 20s) linear infinite var(--marquee-direction, normal);
+  }
+  .marquee-section:hover .marquee__wrapper {
+    animation-play-state: paused;
+  }
+  .marquee__content {
+    display: flex;
+    gap: var(--marquee-gap, 60px);
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .marquee__item {
+    color: var(--marquee-text-color, #fff);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% - var(--marquee-gap, 60px)));
+    }
+  }
+  @media(prefers-reduced-motion: reduce) {
+    .marquee__wrapper {
+      animation: none;
+    }
+  }
+  @media screen and (max-width: 749px) {
+    .marquee__item {
+      font-size: 1.2rem;
+    }
+  }
+{% endstylesheet %}
+
+<script>
+  if (!customElements.get('marquee-component')) {
+    class MarqueeComponent extends HTMLElement {
+      constructor() {
+        super();
+        this.isPaused = false;
+      }
+  
+      connectedCallback() {
+        this.addEventListener('mouseenter', this.handleMouseEnter);
+        this.addEventListener('mouseleave', this.handleMouseLeave);
+        this.addEventListener('touchstart', this.handleTouchStart);
+        this.addEventListener('touchend', this.handleTouchEnd);
+      }
+  
+      disconnectedCallback() {
+        this.removeEventListener('mouseenter', this.handleMouseEnter);
+        this.removeEventListener('mouseleave', this.handleMouseLeave);
+        this.removeEventListener('touchstart', this.handleTouchStart);
+        this.removeEventListener('touchend', this.handleTouchEnd);
+      }
+  
+      handleMouseEnter = () => {
+        this.isPaused = true;
+      }
+  
+      handleMouseLeave = () => {
+        this.isPaused = false;
+      }
+  
+      handleTouchStart = () => {
+        this.isPaused = true;
+      }
+  
+      handleTouchEnd = () => {
+        this.isPaused = false;
+      }
+    }
+  
+    customElements.define('marquee-component', MarqueeComponent);
+  }
+</script>
+
+{% schema %}
+  {
+    "name": "Marquee",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "select",
+        "id": "movement_direction",
+        "label": "Movement Direction",
+        "options": [
+          {
+            "value": "normal",
+            "label": "Left to Right"
+          }, {
+            "value": "reverse",
+            "label": "Right to Left"
+          }
+        ],
+        "default": "normal"
+      },
+      {
+        "type": "range",
+        "id": "speed",
+        "label": "Animation Speed",
+        "min": 10,
+        "max": 60,
+        "step": 5,
+        "unit": "s",
+        "default": 20,
+        "info": "Duration for one complete scroll cycle"
+      }, {
+        "type": "header",
+        "content": "Spacing"
+      }, {
+        "type": "range",
+        "id": "padding_block_start",
+        "label": "Top Padding",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 24
+      }, {
+        "type": "range",
+        "id": "padding_block_end",
+        "label": "Bottom Padding",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 24
+      }, {
+        "type": "range",
+        "id": "gap_between_elements",
+        "label": "Gap Between Items",
+        "min": 20,
+        "max": 150,
+        "step": 10,
+        "unit": "px",
+        "default": 60
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "BETTER TASTE, DIGESTION, BREATH & SMILE"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Marquee",
+        "blocks": [
+          {
+            "type": "text",
+            "settings": {
+              "text": "BETTER TASTE, DIGESTION, BREATH & SMILE"
+            }
+          }, {
+            "type": "text",
+            "settings": {
+              "text": "BETTER TASTE, DIGESTION, BREATH & SMILE"
+            }
+          }, {
+            "type": "text",
+            "settings": {
+              "text": "BETTER TASTE, DIGESTION, BREATH & SMILE"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

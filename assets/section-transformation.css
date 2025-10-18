@@ -1,0 +1,345 @@
+/* ====================================
+   Transformation Section Styles
+   ==================================== */
+
+.transformation-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.transformation-container {
+  position: relative;
+  z-index: 1;
+}
+
+.transformation-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.transformation-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.transformation-heading {
+  color: rgb(var(--color-foreground));
+  margin-bottom: 1.5rem;
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  line-height: var(--font-heading-line-height);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Heading Max Width Options */
+.transformation-heading--small {
+  max-width: 400px;
+}
+
+.transformation-heading--medium {
+  max-width: 600px;
+}
+
+.transformation-heading--large {
+  max-width: 800px;
+}
+
+.transformation-heading--full {
+  max-width: none;
+}
+
+.transformation-highlight {
+  color: var(--theme-color);
+}
+
+.transformation-description {
+  color: rgba(var(--color-foreground), 0.8);
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* Desktop Timeline */
+.transformation-timeline {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(var(--color-foreground), 0.2) 10%,
+    rgba(var(--color-foreground), 0.2) 90%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.timeline-phase {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex: 1;
+  max-width: 200px;
+}
+
+.phase-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #b1b1b1;
+  border: 2px solid rgba(var(--color-foreground), 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-weight: 600;
+  color: rgb(var(--color-foreground));
+}
+
+.phase-number::after {
+  content: "";
+  position: absolute;
+  top: 7%;
+  left: 13%;
+  transform: translate(50%, -7%);
+  width: 100%;
+  height: 1px;
+  background: rgba(var(--color-foreground), 0.1);
+  border-top: 2px dashed rgba(var(--color-foreground), 0.3);
+  z-index: -1;
+}
+
+.timeline-phase:last-child .phase-number::after {
+  display: none;
+}
+
+.phase-content {
+  margin-top: 2rem;
+}
+
+.phase-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--color-foreground));
+}
+
+.phase-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.phase-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.phase-duration {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgb(var(--color-foreground));
+  margin-bottom: 0.5rem;
+}
+
+.phase-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgb(var(--color-base-accent-1, 78, 116, 204));
+  margin-bottom: 0.5rem;
+}
+
+.phase-description {
+  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 0.7);
+  line-height: 1.4;
+}
+
+/* Mobile Slider Specific Styles */
+.transformation-slider {
+  position: relative;
+}
+
+.transformation-slider-list {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 2rem;
+  padding: 2rem 0;
+  margin: 0;
+  list-style: none;
+
+  /* Hide scrollbar for webkit browsers */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.transformation-slider-list::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.transformation-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.slide-phase-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgb(var(--color-background));
+  border: 2px solid rgba(var(--color-foreground), 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  font-weight: 600;
+  color: rgb(var(--color-foreground));
+  font-size: 1.8rem;
+}
+
+.slide-phase-content {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.slide-phase-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--color-foreground));
+}
+
+.slide-phase-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.slide-phase-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.slide-phase-duration {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: rgb(var(--color-foreground));
+  margin-bottom: 0.5rem;
+}
+
+.slide-phase-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(var(--color-base-accent-1, 78, 116, 204));
+  margin-bottom: 1rem;
+}
+
+.slide-phase-description {
+  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 0.7);
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .phase-number:after {
+    left: 5%;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+
+  .transformation-header {
+    margin-bottom: 2rem;
+  }
+
+  .transformation-heading {
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .desktop-only {
+    display: flex !important;
+  }
+
+  .mobile-only {
+    display: none !important;
+  }
+
+  .transformation-timeline {
+    padding: 4rem 0;
+  }
+
+  .timeline-phase {
+    padding: 0 1rem;
+  }
+
+  .phase-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .phase-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .transformation-timeline {
+    padding: 2rem 0;
+  }
+
+  .timeline-phase {
+    max-width: 250px;
+  }
+
+  .phase-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .phase-title {
+    font-size: 2rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .timeline-line {
+    background: rgb(var(--color-foreground));
+  }
+
+  .phase-number {
+    border-color: rgb(var(--color-foreground));
+  }
+}

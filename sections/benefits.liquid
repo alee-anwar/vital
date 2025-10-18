@@ -1,0 +1,236 @@
+{{ 'section-benefits.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .benefits-section-{{ section.id }} {
+    --columns-desktop: {{ section.settings.columns_desktop }};
+    --columns-mobile: {{ section.settings.columns_mobile }};
+    --alignment: {{ section.settings.alignment }};
+  }
+{%- endstyle -%}
+
+<div class="benefits-section benefits-section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="page-width">
+    {%- unless section.settings.title == blank -%}
+      <div class="benefits-title-wrapper">
+        <h2 class="benefits-title {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {%- endunless -%}
+
+    <div class="benefits-grid">
+      {%- for block in section.blocks -%}
+        <div class="benefits-item" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != blank -%}
+            <div class="benefits-icon">
+              {{ block.settings.icon
+ | image_url: width: 44
+ | image_tag: class: 'benefits-icon-image', alt: block.settings.title
+              }}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="benefits-item-title h6">{{ block.settings.title }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.description != blank -%}
+            <div class="benefits-item-description">{{ block.settings.description }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Benefits",
+    "class": "section",
+    "tag": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "title",
+        "default": "Why Choose Us",
+        "label": "Section Title"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h5",
+            "label": "Small"
+          },
+          {
+            "value": "h4",
+            "label": "Medium"
+          },
+          {
+            "value": "h3",
+            "label": "Large"
+          },
+          {
+            "value": "h2",
+            "label": "Extra Large"
+          }, {
+            "value": "h1",
+            "label": "XX Large"
+          }
+        ],
+        "default": "h1",
+        "label": "Heading Size"
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "scheme-1"
+      }, {
+        "type": "header",
+        "content": "Layout"
+      }, {
+        "type": "select",
+        "id": "columns_desktop",
+        "options": [
+          {
+            "value": "1",
+            "label": "1 column"
+          }, {
+            "value": "2",
+            "label": "2 columns"
+          }, {
+            "value": "3",
+            "label": "3 columns"
+          }, {
+            "value": "4",
+            "label": "4 columns"
+          }
+        ],
+        "default": "3",
+        "label": "Desktop Columns"
+      }, {
+        "type": "select",
+        "id": "columns_mobile",
+        "options": [
+          {
+            "value": "1",
+            "label": "1 column"
+          }, {
+            "value": "2",
+            "label": "2 columns"
+          }
+        ],
+        "default": "1",
+        "label": "Mobile Columns"
+      }, {
+        "type": "select",
+        "id": "alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center",
+        "label": "Content Alignment"
+      }, {
+        "type": "header",
+        "content": "Section Padding"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "type": "benefit",
+        "name": "Benefit Item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          }, {
+            "type": "text",
+            "id": "title",
+            "default": "Benefit Title",
+            "label": "Title"
+          }, {
+            "type": "textarea",
+            "id": "description",
+            "default": "Benefit description goes here.",
+            "label": "Description"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Benefits",
+        "blocks": [
+          {
+            "type": "benefit",
+            "settings": {
+              "title": "Free Shipping",
+              "description": "Shop worry-free with no hidden delivery costs."
+            }
+          }, {
+            "type": "benefit",
+            "settings": {
+              "title": "24/7 Customer Support",
+              "description": "Our team is always here to help you anytime, anywhere."
+            }
+          }, {
+            "type": "benefit",
+            "settings": {
+              "title": "Easy Returns & Refunds",
+              "description": "Hassle-free 30-day return policy for your peace of mind."
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
